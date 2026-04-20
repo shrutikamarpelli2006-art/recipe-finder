@@ -147,11 +147,21 @@ const CATEGORY_IMAGES = {
 
 
 
+// Course-based gradient palettes for modal hero
+const COURSE_GRADIENTS = {
+    'dessert':     'linear-gradient(135deg, #3d1a6e 0%, #7b2d8b 50%, #c0392b 100%)',
+    'main course': 'linear-gradient(135deg, #1a3a2a 0%, #2d6a4f 50%, #b5451b 100%)',
+    'snack':       'linear-gradient(135deg, #1a2a3d 0%, #2d5a8b 50%, #b5851b 100%)',
+    'starter':     'linear-gradient(135deg, #3d2a1a 0%, #8b5a2d 50%, #c0871b 100%)',
+};
+
 // Modal Logic
 function openModal(item) {
     const modalHero = document.querySelector('.modal-hero');
-    modalHero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('${getDishImage(item)}')`;
-    
+    const gradient = COURSE_GRADIENTS[item.course.toLowerCase()] || 
+                     'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)';
+    modalHero.style.backgroundImage = gradient;
+
     document.getElementById('modal-title').textContent = item.name;
     document.getElementById('modal-prep').textContent = item.prep_time > 0 ? item.prep_time + ' min' : '15 min';
     document.getElementById('modal-cook').textContent = item.cook_time > 0 ? item.cook_time + ' min' : '25 min';
