@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasoi Bharat | Discover the Soul of Indian Cuisine</title>
+    <meta name="description" content="Explore a rich database of 250+ Indian authentic recipes. Filter by region, diet, and flavor profile.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Authentic Indian Flavors</span>
+            <h1>Rasoi Bharat</h1>
+            <p>A culinary journey through the vibrant states and diverse regions of India.</p>
+            <div class="search-bar-hero">
+                <input type="text" id="main-search" placeholder="Search dish or ingredients (e.g. Paneer, Biryani, Cumin)...">
+                <button id="search-btn">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Filter Tabs -->
+        <section class="filter-section">
+            <div class="filter-group">
+                <h3>Course</h3>
+                <div id="course-filters" class="chips-row">
+                    <button class="chip active" data-filter="course" data-value="all">🍽️ All</button>
+                    <button class="chip chip-img" data-filter="course" data-value="main course">
+                        <img src="assets/indian_food_hero_1776618094107.png" alt="Main Course" class="chip-img-thumb">
+                        <span>Main Course</span>
+                    </button>
+                    <button class="chip chip-img" data-filter="course" data-value="dessert">
+                        <img src="assets/indian_desserts_1776618260109.png" alt="Dessert" class="chip-img-thumb">
+                        <span>Dessert</span>
+                    </button>
+                    <button class="chip chip-img" data-filter="course" data-value="snack">
+                        <img src="assets/paneer_sandwich.png" alt="Snack" class="chip-img-thumb">
+                        <span>Snack</span>
+                    </button>
+                    <button class="chip chip-img" data-filter="course" data-value="starter">
+                        <img src="assets/tomato_rice.png" alt="Starter" class="chip-img-thumb">
+                        <span>Starter</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Diet</h3>
+                <div id="diet-filters" class="chips-row">
+                    <button class="chip active" data-filter="diet" data-value="all">All</button>
+                    <button class="chip" data-filter="diet" data-value="vegetarian">Vegetarian</button>
+                    <button class="chip" data-filter="diet" data-value="non vegetarian">Non-Vegetarian</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Region</h3>
+                <div id="region-filters" class="chips-row">
+                    <button class="chip active" data-filter="region" data-value="all">All India</button>
+                    <button class="chip" data-filter="region" data-value="North">North</button>
+                    <button class="chip" data-filter="region" data-value="South">South</button>
+                    <button class="chip" data-filter="region" data-value="East">East</button>
+                    <button class="chip" data-filter="region" data-value="West">West</button>
+                    <button class="chip" data-filter="region" data-value="North East">North East</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats / Info -->
+        <div class="results-info">
+            <p id="results-count">Showing 255 dishes</p>
+        </div>
+
+        <!-- Recipes Grid -->
+        <section id="recipes-grid" class="recipes-grid">
+            <!-- Cards injected by JS -->
+        </section>
+        
+        <div class="load-more-container">
+            <button id="load-more" class="secondary-btn">View More Dishes</button>
+        </div>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-hero">
+                <div class="modal-badges" id="modal-badges"></div>
+                <h2 id="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <div class="meta-item">
+                        <span class="label">Prep Time</span>
+                        <span class="value" id="modal-prep">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Cook Time</span>
+                        <span class="value" id="modal-cook">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Flavor</span>
+                        <span class="value" id="modal-flavor">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">State</span>
+                        <span class="value" id="modal-state">-</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Ingredients</h3>
+                    <p id="modal-ingredients" class="ingredients-p"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
